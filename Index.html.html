@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arra Medical</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            background: #f4f6fb;
+            overflow-x: hidden;
+        }
+        .header {
+            min-height: 100vh;
+            width: 100vw;
+            background-image: 
+                linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+                url('Arra Medical (2)/1.png');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2% 6%;
+            width: 100%;
+        }
+        .nav-links ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links ul li a, .nav-links ul li img {
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .nav-links ul li a:hover,
+        .nav-links ul li.active a {
+            background: #f44366;
+            color: #fff;
+        }
+        .logo img {
+            width: 140px;
+            max-width: 100%;
+            height: auto;
+        }
+        .text-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            width: 90vw;
+            max-width: 600px;
+        }
+        .text-box h1 {
+            font-size: 48px;
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .text-box p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.4s, border 0.4s;
+            text-decoration: none;
+        }
+        .hero-btn:hover {
+            background: #f44366;
+            border-color: #f44366;
+        }
+        .course, .facilities, .about-hero, .about-image-section, .vision-image-section {
+            width: 100vw;
+            max-width: 100%;
+            margin: 0 auto 40px auto;
+            box-sizing: border-box;
+        }
+        .course, .facilities {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+            padding: 40px 30px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .service-col, .facility-col {
+            background: #f9f9fc;
+            border-radius: 8px;
+            padding: 24px 18px;
+            flex: 1 1 250px;
+            min-width: 220px;
+            max-width: 350px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+            margin: 8px 0;
+        }
+        .service-col h3, .facility-col h3 {
+            color: #f44366;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        .services-images-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            width: 100%;
+        }
+        .services-images-row div {
+            flex: 1 1 300px;
+            min-width: 250px;
+            max-width: 500px;
+        }
+        .services-images-row img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+            display: block;
+        }
+        .about-hero {
+            min-height: 350px;
+            background: linear-gradient(rgba(4,9,30,0.5), rgba(4,9,30,0.5)), url('Arra Medical (2)/2.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+            text-align: center;
+        }
+        .about-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #fff;
+            text-align: center;
+        }
+        .about-image-section, .vision-image-section {
+            min-height: 300px;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-image-section {
+            background: url('Arra Medical (2)/3.png') center/cover no-repeat;
+        }
+        .vision-image-section {
+            background: url('Arra Medical (2)/4.png') center/cover no-repeat;
+        }
+        @media (max-width: 1200px) {
+            .nav, .course, .facilities {
+                padding-left: 2vw;
+                padding-right: 2vw;
+            }
+        }
+        @media (max-width: 900px) {
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 4% 2vw;
+            }
+            .row, .services-images-row {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .text-box h1 {
+                font-size: 32px;
+            }
+            .course, .facilities {
+                padding: 24px 10px;
+            }
+        }
+        @media (max-width: 600px) {
+            .text-box {
+                max-width: 95vw;
+                padding: 0 2vw;
+            }
+            .about-hero h1 {
+                font-size: 28px;
+            }
+            .about-hero p {
+                font-size: 16px;
+            }
+            .service-col, .facility-col {
+                min-width: 90vw;
+                max-width: 98vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="Arra Medical (2)/2.png" alt="Arra Medical Logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Ballina</a></li>
+                    <li><a href="rreth-nesh.html">Rreth Nesh</a></li>
+                    <li><a href="#sherbimet">Shërbimet</a></li>
+                    <li><a href="Pyetjet e Bëra Më Shpesh.html">Pyetjet e Bëra Më Shpesh</a></li>
+                    <li>
+                        <a href="Arra Medical (2)/5.png" target="_blank">
+                            <img src="Arra Medical (2)/5.png" alt="Shërbimet Arra Medical" style="height:32px; vertical-align:middle; border-radius:4px;">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arra Medical (2)/6.png" target="_blank">
+                            <img src="Arra Medical (2)/6.png" alt="Shërbimet Arra Medical" style="height:32px; vertical-align:middle; border-radius:4px;">
+                        </a>
+                    </li>
+                    <li><a href="Vizioni ynë.html">Vizioni ynë</a></li>
+                    <li><a href="#stafi">Stafi mjekësor</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="https://www.facebook.com/arramedical" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/arramedical" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.twitter.com/arramedical" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="text-box">
+            <h1>Arra Medical</h1>
+            <p>Arra Medical është e përkushtuar për të ofruar kujdes shëndetësor cilësor dhe shërbime moderne për pacientët tanë.</p>
+            <a href="#rezervo" class="hero-btn">Rezervo një vizitë</a>
+        </div>
+    </section>
+
+    <section class="Shërbimet" id="sherbimet">
+        <h2>Shërbimet tona</h2>
+        <p>Ne ofrojmë një gamë të gjerë shërbimesh mjekësore për të përmbushur nevojat e pacientëve tanë.</p>
+        <div class="row">
+            <div class="service-col">
+                <h3>Konsulta Mjekësore</h3>
+                <p>Konsulta të përgjithshme dhe të specializuara me mjekë të kualifikuar.</p>
+            </div>
+            <div class="service-col">
+                <h3>Analiza Laboratorike</h3>
+                <p>Analiza të ndryshme laboratorike për diagnostikim të saktë.</p>
+            </div>
+            <div class="service-col">
+                <h3>Radiologji & Eko</h3>
+                <p>Shërbime të radiologjisë, ultrazërit dhe imazherisë moderne.</p>
+            </div>
+            <div class="service-col">
+                <h3>Fizioterapi</h3>
+                <p>Trajtime rehabilituese dhe fizioterapi për rikuperim të shpejtë.</p>
+            </div>
+            <div class="service-col">
+                <h3>Vaksinime</h3>
+                <p>Vaksinime për të gjitha grupmoshat sipas protokolleve shëndetësore.</p>
+            </div>
+            <div class="service-col">
+                <h3>Kontrolla Preventive</h3>
+                <p>Kontrolla të rregullta për parandalimin e sëmundjeve.</p>
+            </div>
+            <div class="service-col">
+                <h3>Shërbime të tjera</h3>
+                <p>Shërbime të tjera mjekësore sipas nevojave të pacientëve.</p>
+            </div>
+        </div>
+        <div class="services-images-row">
+            <div>
+                <img src="Arra Medical (2)/6.png" alt="Shërbimet Arra Medical 1">
+            </div>
+            <div>
+                <img src="Arra Medical (2)/3.png" alt="Shërbimet Arra Medical 2">
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities">
+        <h2>Objektet tona</h2>
+        <div class="row">
+            <div class="facility-col">
+                <h3>Laborator Modern</h3>
+                <p>I pajisur me teknologji të avancuar për analiza të sakta.</p>
+            </div>
+            <div class="facility-col">
+                <h3>Dhoma Konsultash</h3>
+                <p>Ambiente të rehatshme për konsultat me mjekë specialistë.</p>
+            </div>
+            <div class="facility-col">
+                <h3>Radiologji & Eko</h3>
+                <p>Pajisje moderne për diagnostikim të shpejtë dhe të saktë.</p>
+            </div>
+            <div class="facility-col">
+                <h3>Salla Fizioterapie</h3>
+                <p>Hapësira të dedikuara për trajtime rehabilituese.</p>
+            </div>
+            <div class="facility-col">
+                <h3>Recepsion & Sallë Pritjeje</h3>
+                <p>Shërbim miqësor dhe pritje komode për të gjithë pacientët.</p>
+            </div>
+        </div>
+        <h3>Lajmet e fundit</h3>
+        <ul>
+            <li>Orari i ri i shërbimeve për sezonin veror.</li>
+            <li>Shërbimi i vaksinimit është i disponueshëm çdo ditë.</li>
+            <li>Arra Medical tani ofron konsultime online.</li>
+        </ul>
+    </section>
+
+    <section class="about-hero">
+        <div style="color: #fff; text-align: center;">
+            <h1 style="font-size: 42px; font-weight: 700; margin-bottom: 16px;">Rreth Nesh</h1>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto;">
+                Arra Medical është institucion modern shëndetësor i përkushtuar për kujdesin dhe mirëqenien e pacientëve. Ekipi ynë profesional ofron shërbime të avancuara dhe ambiente të ngrohta për çdo vizitor.
+            </p>
+        </div>
+    </section>
+    <div class="Stafi mjekësor" id="stafi">
+        <div class="container">
+            <h2 style="color: #f44366; text-align: center; margin-top: 20px;">Stafi Mjekësor</h2>
+            <p style="text-align: center; color: #fff;">Ekipi ynë përbëhet nga profesionistë të kualifikuar dhe të përkushtuar për shëndetin tuaj.</p>
+            <div class="row">
+                <div class="service-col">
+                    <h3>Dr. Arben Hoxha</h3>
+                    <p>Mjek i përgjithshëm me 10 vite eksperiencë.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Dr. Lira Dervishi</h3>
+                    <p>Specialiste e radiologjisë me teknologji të avancuar.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Dr. Besnik Kelmendi</h3>
+                    <p>Fizioterapeut me trajtime rehabilituese efektive.</p>
+                </div>
+            </div>
+            <section class="Pyetjet e Bëra Më Shpesh" id="faq">
+                <h2 style="color: #f44366; text-align: center; margin-top: 20px;">Pyetjet e Bëra Më Shpesh</h2>
+                <p style="text-align: center; color: #fff;">Këtu mund të gjeni përgjigjet për pyetjet më të zakonshme që na bëhen.</p>
+                <div class="row">
+                    <div class="service-col">
+                        <h3>Si mund të rezervoj një vizitë?</h3>
+                        <p>Ju mund të rezervoni një vizitë duke plotësuar formularin në seksionin "Rezervo një vizitë" ose duke na kontaktuar direkt në numrin tonë të telefonit.</p>
+                    </div>
+                    <div class="service-col">
+                        <h3>Cilat janë oraret e punës?</h3>
+                        <p>Orari ynë i punës është nga e hëna në të premte, nga ora 08:00 deri në 20:00 dhe të shtunën nga ora 09:00 deri në 14:00.</p>
+                    </div>
+                    <div class="service-col">
+                        <h3>A ofroni shërbime emergjente?</h3>
+                        <p>Po, ne ofrojmë shërbime emergjente gjatë orarit të punës. Për raste urgjente, ju lutemi na kontaktoni menjëherë.</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+            <script>
+                // Validimi i formës së kontaktit
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    var name = document.getElementById('contactName').value.trim();
+                    var email = document.getElementById('contactEmail').value.trim();
+                    var message = document.getElementById('contactMessage').value.trim();
+                    var messageDiv = document.getElementById('contactFormMessage');
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!name || !email || !message) {
+                        messageDiv.textContent = "Ju lutemi plotësoni të gjitha fushat.";
+                        messageDiv.style.color = "#f44366";
+                        messageDiv.style.display = "block";
+                        return;
+                    }
+                    if (!emailPattern.test(email)) {
+                        messageDiv.textContent = "Ju lutemi vendosni një email të vlefshëm.";
+                        messageDiv.style.color = "#f44366";
+                        messageDiv.style.display = "block";
+                        return;
+                    }
+
+                    messageDiv.style.color = "#219653";
+                    messageDiv.textContent = "Mesazhi u dërgua me sukses!";
+                    messageDiv.style.display = "block";
+
+                    setTimeout(function() {
+                        messageDiv.style.display = "none";
+                        document.getElementById('contactForm').reset();
+                        messageDiv.style.color = "#f44366";
+                    }, 2500);
+
+                    // Nëse do të dërgoni të dhënat në server, zëvendësoni këtë pjesë me AJAX ose action të formës
+                    // this.submit();
+                });
+            </script>
+            <p style="text-align: center; color: #fff;">Email: <a href="mailto:info@arramedical.com" style="color:#f44366;">info@arramedical.com</a></p>
+        </div>
+    </div>
+    <section class="about-image-section">
+        <!-- Mund të shtosh tekst ose të lësh bosh për të shfaqur vetëm imazhin -->
+    </section>
+    <section class="vision-image-section">
+        <!-- Mund të shtosh tekst ose të lësh bosh për të shfaqur vetëm imazhin -->
+        <img src="C:\Users\hp\Downloads\Arra Medical (2)\4.png" alt="Modern healthcare facility with staff members welcoming patients in a bright and friendly setting. The environment appears clean and professional, conveying warmth and care. The text Vizioni ynë is visible in the image.">
+    </section>
+    <div class="Rezervo një vizitë" id="rezervo" style="max-width: 440px; margin: 60px auto 60px auto; background: #fff; border-radius: 16px; box-shadow: 0 6px 32px rgba(44,62,80,0.13); padding: 40px 32px;">
+        <h2 style="text-align:center; color:#f44366; margin-bottom: 28px; font-size: 28px; font-weight: 700; letter-spacing: 1px;">Rezervo një vizitë</h2>
+        <form action="#" method="post" id="reservationForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: flex; flex-direction: column;">
+                <label for="name" style="margin-bottom: 7px; font-weight: 600; color: #2d2d2d; font-size: 15px;">Emri dhe Mbiemri</label>
+                <input type="text" id="name" name="name" required placeholder="Shkruani emrin tuaj" style="padding: 12px; border: 1.5px solid #e0e0e0; border-radius: 6px; font-size: 16px; background: #f9f9fc;">
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <label for="email" style="margin-bottom: 7px; font-weight: 600; color: #2d2d2d; font-size: 15px;">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Shkruani email-in" style="padding: 12px; border: 1.5px solid #e0e0e0; border-radius: 6px; font-size: 16px; background: #f9f9fc;">
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <label for="date" style="margin-bottom: 7px; font-weight: 600; color: #2d2d2d; font-size: 15px;">Data e vizitës</label>
+                <input type="date" id="date" name="date" required style="padding: 12px; border: 1.5px solid #e0e0e0; border-radius: 6px; font-size: 16px; background: #f9f9fc;">
+            </div>
+            <button type="submit" style="margin-top: 10px; background: linear-gradient(90deg,#f44366 60%,#ff7e5f 100%); color: #fff; border: none; border-radius: 6px; padding: 14px 0; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(244,67,102,0.10); transition: background 0.3s;">Rezervo</button>
+            <div id="formMessage" style="margin-top: 10px; text-align: center; color: #f44366; font-weight: 600; display: none; font-size: 15px;"></div>
+        </form>
+        <!--Struktura e Kontaktit-->
+        <section class="Contact form" id="contact">
+            <h2 style="color: #f44366; text-align: center; margin-top: 20px;">Kontakt</h2>
+            <p style="text-align: center; color: #fff;">Për çdo pyetje ose informacion, ju lutemi na kontaktoni në:</p>
+            <form id="contactForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 14px; max-width: 400px; margin: 0 auto;">
+                <label for="contactName" style="color:#fff;">Emri dhe Mbiemri</label>
+                <input type="text" id="contactName" name="contactName" required placeholder="Shkruani emrin tuaj" style="padding: 8px; border-radius: 4px; border: 1px solid #d1d5db;">
+                
+                <label for="contactEmail" style="color:#fff;">Email</label>
+                <input type="email" id="contactEmail" name="contactEmail" required placeholder="Shkruani email-in" style="padding: 8px; border-radius: 4px; border: 1px solid #d1d5db;">
+                
+                <label for="contactMessage" style="color:#fff;">Mesazhi juaj</label>
+                <textarea id="contactMessage" name="contactMessage" required placeholder="Shkruani mesazhin tuaj" rows="4" style="padding: 8px; border-radius: 4px; border: 1px solid #d1d5db;"></textarea>
+                
+                <button type="submit" style="background: #f44366; color: #fff; border: none; border-radius: 4px; padding: 10px 0; font-size: 15px; font-weight: 600; cursor: pointer;">Dërgo</button>
+                <div id="contactFormMessage" style="margin-top: 8px; text-align: center; color: #f44366; font-weight: 500; display: none;"></div>
+            </form>
+            <p style="text-align:center;color:#fff;">Email:<a href="mailto:info@arramedical.com">info@arramedical.com</a></p>
+        </section>
+        <script>
+            // Validimi profesional i formës së rezervimit
+            document.getElementById('reservationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var name = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var date = document.getElementById('date').value;
+                var messageDiv = document.getElementById('formMessage');
+
+                // Email regex për validim bazik
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!name || !email || !date) {
+                    messageDiv.textContent = "Ju lutemi plotësoni të gjitha fushat.";
+                    messageDiv.style.color = "#f44366";
+                    messageDiv.style.display = "block";
+                    return;
+                }
+                if (!emailPattern.test(email)) {
+                    messageDiv.textContent = "Ju lutemi vendosni një email të vlefshëm.";
+                    messageDiv.style.color = "#f44366";
+                    messageDiv.style.display = "block";
+                    return;
+                }
+
+                // Nëse gjithçka është në rregull, shfaq mesazh suksesi
+                messageDiv.style.color = "#219653";
+                messageDiv.textContent = "Rezervimi u dërgua me sukses!";
+                messageDiv.style.display = "block";
+
+                setTimeout(function() {
+                    messageDiv.style.display = "none";
+                    document.getElementById('reservationForm').reset();
+                    messageDiv.style.color = "#f44366";
+                }, 2500);
+
+                // Nëse do të dërgoni të dhënat në server, zëvendësoni këtë pjesë me AJAX ose action të formës
+                // this.submit();
+            });
+        </script>
+    </div>
+    <!-- Butoni Scroll to Top me dizajn më modern -->
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Kthehu lart"
+    style="display:none;position:fixed;bottom:32px;right:32px;z-index:99;
+    background: linear-gradient(135deg,#f44366 60%,#ff7e5f 100%);
+    color:#fff;border:none;border-radius:50%;width:54px;height:54px;
+    font-size:28px;font-weight:bold;cursor:pointer;
+    box-shadow:0 4px 16px rgba(44,62,80,0.18);
+    transition:background 0.3s, transform 0.2s;">
+    <span style="display:inline-block;transform:translateY(-2px);">↑</span>
+</button>
+<script>
+    window.onscroll = function() {
+        var btn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    // Efekt hover për butonin
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById("scrollTopBtn");
+        btn.onmouseover = function() {
+            btn.style.transform = "scale(1.12)";
+            btn.style.background = "linear-gradient(135deg,#ff7e5f 0%,#f44366 100%)";
+        };
+        btn.onmouseout = function() {
+            btn.style.transform = "scale(1)";
+            btn.style.background = "linear-gradient(135deg,#f44366 60%,#ff7e5f 100%)";
+        };
+    });
+</script>
+    <footer style="background:#2d2d2d;color:#fff;padding:40px 20px;text-align:center;">
+        <p>&copy; 2025 Arra Medical. Të gjitha të drejtat e rezervuara.</p>
+        <p>Kjo Webfaqe është krijuar për qëllime edukative dhe nuk përfaqëson një institucion real kjo është bërë nga unë Valon Sadiku për projektin në Arra Academy.</p>
+        <p>Ju lutemi më ndiqni më shumë në <a href="https://github.com/Valon888" target="_blank" style="color:#f44366;">GitHub</a>.</p>
+    </footer>
+</body>
+</html>
